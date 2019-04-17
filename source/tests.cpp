@@ -20,6 +20,10 @@ TEST_CASE("describe_Vec2_struct", "[Vec2]"){
   REQUIRE(Testobjekt_3.y == 400);
   Testobjekt_3 /= lambda;
   REQUIRE(Approx(Testobjekt_3.x) == -5.5);
+  Vec2 Testobjekt_4 = Testobjekt_3 + Testobjekt_1;
+  REQUIRE(Approx(Testobjekt_4.x) == 1.5);
+  Vec2 Testobjekt_5 = Testobjekt_4 - Testobjekt_1;
+  REQUIRE(Approx(Testobjekt_5.x) == -5.5);
 }
 
 int main(int argc, char *argv[])

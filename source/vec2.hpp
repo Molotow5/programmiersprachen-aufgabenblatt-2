@@ -14,6 +14,7 @@ struct Vec2{
 
 };
 
+// Freie Operatoren für 2D Vektoren
 Vec2 operator+(Vec2 const& u, Vec2 const& v);
 Vec2 operator-(Vec2 const& u, Vec2 const& v);
 Vec2 operator*(Vec2 const& u, float s);

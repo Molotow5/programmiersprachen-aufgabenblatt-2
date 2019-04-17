@@ -12,13 +12,13 @@
         return *this; 
     }
 
-    Vec2& Vec2::operator*=(float const s){
+    Vec2& Vec2::operator*=(float s){
         x = x * s;
         y = y * s;
         return *this;
     }
 
-    Vec2& Vec2::operator/=(float const s){
+    Vec2& Vec2::operator/=(float s){
         x = x / s;
         y = y / s;
         return *this;

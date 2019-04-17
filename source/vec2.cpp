@@ -23,3 +23,28 @@
         y = y / s;
         return *this;
     }
+
+    Vec2 operator+(Vec2 const& u, Vec2 const& v){
+        Vec2 ergebnis{u.x + v.x, u.y + u.y};
+        return ergebnis;
+    }
+
+    Vec2 operator-(Vec2 const& u, Vec2 const& v){
+        Vec2 ergebnis{u.x - v.x, u.y - v.y};
+        return ergebnis;
+    }
+
+    Vec2 operator*(Vec2 const& u, float s){
+        Vec2 ergebnis{u.x * s, u.y * s};
+        return ergebnis;
+    }
+
+    Vec2 operator/(Vec2 const& u, float s){
+        Vec2 ergebnis{u.x / s, u.y / s};
+        return ergebnis;
+    }
+
+    Vec2 operator*(float s, Vec2 const& v){
+        Vec2 ergebnis{s * v.x, s * v.y};
+        return ergebnis;
+    }

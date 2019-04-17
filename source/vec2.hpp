@@ -20,4 +20,5 @@ Vec2 operator*(Vec2 const& u, float s);
 Vec2 operator/(Vec2 const& u, float s);
 Vec2 operator*(float s, Vec2 const& v);
 
+
 #endif //END_VEC2

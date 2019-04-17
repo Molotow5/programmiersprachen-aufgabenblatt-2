@@ -3,7 +3,6 @@
 #include "vec2.hpp"
 
 
-
 TEST_CASE("describe_Vec2_struct", "[Vec2]"){
   Vec2 Testobjekt_1;
   Vec2 Testobjekt_2{7,288.88};
@@ -11,6 +10,8 @@ TEST_CASE("describe_Vec2_struct", "[Vec2]"){
   REQUIRE(Testobjekt_1.y == 0);
   REQUIRE(Testobjekt_2.x == 7);
   REQUIRE(Testobjekt_2.y == Approx(288.88));
+  Testobjekt_1 += Testobjekt_2;
+  REQUIRE(Testobjekt_1.x == 7);
 }
 
 int main(int argc, char *argv[])

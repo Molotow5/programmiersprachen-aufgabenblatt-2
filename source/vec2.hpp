@@ -7,9 +7,11 @@ struct Vec2{
     double x = 0.0f;
     double y = 0.0f;
 
-    Vec2& operator+=(Vec2 const& v){
-        
-    }
+    Vec2& operator+=(Vec2 const& v);
+    Vec2& operator-=(Vec2 const& v);
+    Vec2& operator*=(float const s);
+    Vec2& operator/=(float const s);
+
 };
 
 #endif //END_VEC2

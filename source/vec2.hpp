@@ -4,8 +4,8 @@
 // Für Vektor im 2 Dimensionalen Raum
 struct Vec2{
 
-    double x = 0.0f;
-    double y = 0.0f;
+    float x = 0.0f;
+    float y = 0.0f;
 
     Vec2& operator+=(Vec2 const& v);
     Vec2& operator-=(Vec2 const& v);

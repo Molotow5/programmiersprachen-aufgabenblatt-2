@@ -25,7 +25,7 @@
     }
 
     Vec2 operator+(Vec2 const& u, Vec2 const& v){
-        Vec2 ergebnis{u.x + v.x, u.y + u.y};
+        Vec2 ergebnis{u.x + v.x, u.y + v.y};
         return ergebnis;
     }
 

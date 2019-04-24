@@ -54,7 +54,7 @@ TEST_CASE("describe_operator+", "[operator+]"){
 }
 TEST_CASE("describe_operator-", "[operator-]"){
   Vec2 Testobjekt_7{33, 55};
-  Vec2 Testobjekt_8{11, 5};
+  Vec2 Testobjekt_8{11, -5};
   Vec2 Testobjekt_9 = Testobjekt_7 - Testobjekt_8;
   REQUIRE(Testobjekt_9.x == 22);
   REQUIRE(Testobjekt_9.y == 60);
@@ -74,8 +74,9 @@ TEST_CASE("describe_operator*", "[operator*]"){
 TEST_CASE("describe_operator/", "[operator/]"){
   Vec2 Testobjekt_13{12000.8f, -44};
   float zahl = 2;
-  REQUIRE(Testobjekt_13.x == 6000.4f);
-  REQUIRE(Testobjekt_13.y == -22);
+  Vec2 Testobjekt_14 = Testobjekt_13 / zahl;
+  REQUIRE(Testobjekt_14.x == 6000.4f);
+  REQUIRE(Testobjekt_14.y == -22);
 }
 
 int main(int argc, char *argv[])

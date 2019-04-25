@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
 #include "vec2.hpp"
+#include "mat2.hpp"
 
 
 TEST_CASE("describe_Vec2_struct", "[Vec2]"){
@@ -72,11 +73,21 @@ TEST_CASE("describe_operator*", "[operator*]"){
   REQUIRE(Testobjekt_12.y == 1000);
 }
 TEST_CASE("describe_operator/", "[operator/]"){
-  Vec2 Testobjekt_13{12000.8f, -44};
+  Vec2 Testobjekt_13{12000.8f, -44.0f};
   float zahl = 2;
   Vec2 Testobjekt_14 = Testobjekt_13 / zahl;
   REQUIRE(Testobjekt_14.x == 6000.4f);
   REQUIRE(Testobjekt_14.y == -22);
+}
+
+TEST_CASE("describe_operator*=_mat2", "[operator*=]"){
+  Mat2 Testobjekt_15{5.0f, -2.0f, 3.0f, 4.0f};
+  Mat2 Testobjekt_16{3.0f, 2.0f, -1.0f, 3.0f};
+  Testobjekt_15 *= Testobjekt_16;
+  REQUIRE(Testobjekt_15.e_00 == 19);
+  REQUIRE(Testobjekt_15.e_01 == -18);
+  REQUIRE(Testobjekt_15.e_10 == 27);
+  REQUIRE(Testobjekt_15.e_11 == 10);
 }
 
 int main(int argc, char *argv[])

@@ -84,10 +84,21 @@ TEST_CASE("describe_operator*=_mat2", "[operator*=]"){
   Mat2 Testobjekt_15{5.0f, -2.0f, 3.0f, 4.0f};
   Mat2 Testobjekt_16{3.0f, 2.0f, -1.0f, 3.0f};
   Testobjekt_15 *= Testobjekt_16;
-  REQUIRE(Testobjekt_15.e_00 == 19);
-  REQUIRE(Testobjekt_15.e_01 == -18);
-  REQUIRE(Testobjekt_15.e_10 == 27);
-  REQUIRE(Testobjekt_15.e_11 == 10);
+  REQUIRE(Testobjekt_15.e_00 == 17);
+  REQUIRE(Testobjekt_15.e_01 == 4);
+  REQUIRE(Testobjekt_15.e_10 == 5);
+  REQUIRE(Testobjekt_15.e_11 == 18);
+}
+
+TEST_CASE("describe_operator*_mat2*vec*", "[operator*]"){
+  Mat2 Testobjekt_16{3.0f, 2.0f, 1.0f, 0.0f};
+  Vec2 Testobjekt_17{-1.0f, -4.0f};
+  Vec2 Testobjekt_18 = Testobjekt_16 * Testobjekt_17;
+  REQUIRE(Testobjekt_18.x == -11);
+  REQUIRE(Testobjekt_18.y == -1);
+  Vec2 Testobjekt_19 = Testobjekt_18 * Testobjekt_16;
+  REQUIRE(Testobjekt_19.x == -35);
+  REQUIRE(Testobjekt_19.y == -11);
 }
 
 int main(int argc, char *argv[])

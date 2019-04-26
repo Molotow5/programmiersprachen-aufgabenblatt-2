@@ -1,6 +1,7 @@
 #ifndef MAT2_HPP
 #define MAT2_HPP
 #include <array>
+#include "vec2.hpp"
 
 // Mat2 definition
 
@@ -20,4 +21,6 @@ struct Mat2 {
 
 Mat2 operator*(Mat2 const& m1, Mat2 const& m2);
 
+Vec2 operator*(Mat2 const& m, Vec2 const& v);
+Vec2 operator*(Vec2 const& v, Mat2 const& m);
 #endif

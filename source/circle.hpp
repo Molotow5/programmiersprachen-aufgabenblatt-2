@@ -13,6 +13,8 @@ class Circle{
         : radius_(r), midpoint_(mp), color_(col)
         {}
 
+        float circumference() const;
+
     private:
 
         float radius_ = 0.0f;

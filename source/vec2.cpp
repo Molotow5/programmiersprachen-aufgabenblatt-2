@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 #include "vec2.hpp"
 
     Vec2& Vec2::operator+=(Vec2 const& v){
@@ -28,6 +29,11 @@
         y = y / s;
         return *this;    
         }
+    }
+
+    float Vec2::norm() const{
+        float result = sqrtf(x * x + y * y);
+        return result;
     }
 
     Vec2 operator+(Vec2 const& u, Vec2 const& v){

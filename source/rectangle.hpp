@@ -10,6 +10,8 @@ class Rectangle{
         : min_(p1), max_(p2), color_(col)
         {}
 
+        float circumference() const;
+
     private:
         Vec2 min_{};
         Vec2 max_{};

@@ -3,6 +3,8 @@
 #include "vec2.hpp"
 #include "mat2.hpp"
 #include "color.hpp"
+#include "rectangle.hpp"
+#include "circle.hpp"
 
 
 TEST_CASE("describe_Vec2_struct", "[Vec2]"){
@@ -161,10 +163,10 @@ TEST_CASE("describe_function_make_rotation_"){
   double e_01 = Testobjekt_Rotationsmatrix.e_01;
   double e_10 = Testobjekt_Rotationsmatrix.e_10;
   double e_11 = Testobjekt_Rotationsmatrix.e_11;
-  REQUIRE(e_00 == Approx(sqrt(2.0f) / 2.0f).epsilon(0.01));
-  REQUIRE(e_01 == Approx(-(sqrt(2.0f) / 2.0f)).epsilon(0.01));
-  REQUIRE(e_10 == Approx(sqrt(2.0f) / 2.0f).epsilon(0.01));
-  REQUIRE(e_11 == Approx(sqrt(2.0f) / 2.0f).epsilon(0.01));
+  REQUIRE(e_00 == Approx(sqrtf(2.0f) / 2.0f).epsilon(0.01));
+  REQUIRE(e_01 == Approx(-(sqrtf(2.0f) / 2.0f)).epsilon(0.01));
+  REQUIRE(e_10 == Approx(sqrtf(2.0f) / 2.0f).epsilon(0.01));
+  REQUIRE(e_11 == Approx(sqrtf(2.0f) / 2.0f).epsilon(0.01));
 }
 
 TEST_CASE("describe_struct_color", "[color]"){
@@ -172,6 +174,34 @@ TEST_CASE("describe_struct_color", "[color]"){
   REQUIRE(Testobjekt_25.r == 0.5f);
   REQUIRE(Testobjekt_25.g == 0.5f);
   REQUIRE(Testobjekt_25.b == 0.5f);
+}
+
+TEST_CASE("describe_function_norm", "[norm]"){
+  Vec2 Testobjekt_26{20.0f, 0.0f};
+  Vec2 Testobjekt_27{-2.0f, -4.0f};
+  float test1 = Testobjekt_26.norm();
+  float test2 = Testobjekt_27.norm();
+  REQUIRE(test1 == 20);
+  REQUIRE(test2 == Approx(sqrtf(20)).epsilon(0.01));
+}
+
+TEST_CASE("describe_class_rectangle", "[rectangle]"){
+  Vec2 Vektor_1{3.0f, 5.0f};
+  Vec2 Vektor_2{5.5f, 3.5f};
+  Vec2 Vektor_3{-2.0f, -2.0f};
+  Color color{};
+  Rectangle Testobjekt_28(Vektor_1, Vektor_2, color);
+  Rectangle Testobjekt_29(Vektor_1, Vektor_3, color);
+  float circumference = Testobjekt_28.circumference();
+  REQUIRE(circumference == 8);
+}
+
+TEST_CASE("describe_class_circle", "[circle]"){
+  Vec2 Vektor{};
+  Color color{};
+  Circle Testobjekt_29(2.0f, Vektor, color);
+  float circumference = Testobjekt_29.circumference();
+  REQUIRE(circumference == Approx(2 * 2 * M_PI).epsilon(0.01));
 }
 
 int main(int argc, char *argv[])

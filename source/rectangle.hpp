@@ -1,17 +1,19 @@
 #ifndef RECTANGLE_HPP
 #define RECTANGLE_HPP
 #include "vec2.hpp"
+#include "color.hpp"
 
 class Rectangle{
 
     public:
-        Rectangle(Vec2 const& p1, Vec2 const& p2)
-        : min_(p1), max_(p2)
+        Rectangle(Vec2 const& p1, Vec2 const& p2, Color const& col)
+        : min_(p1), max_(p2), color_(col)
         {}
 
     private:
-        Vec2 min_{0.0f, 0.0f};
-        Vec2 max_{0.0f, 0.0f};
+        Vec2 min_{};
+        Vec2 max_{};
+        Color color_{};
 
 };
 

@@ -90,7 +90,7 @@ TEST_CASE("describe_operator*=_mat2", "[operator*=]"){
   REQUIRE(Testobjekt_15.e_11 == 18);
 }
 
-TEST_CASE("describe_operator*_mat2*vec*", "[operator*]"){
+TEST_CASE("describe_operator*_mat2*vec", "[operator*]"){
   Mat2 Testobjekt_16{3.0f, 2.0f, 1.0f, 0.0f};
   Vec2 Testobjekt_17{-1.0f, -4.0f};
   Vec2 Testobjekt_18 = Testobjekt_16 * Testobjekt_17;
@@ -99,6 +99,53 @@ TEST_CASE("describe_operator*_mat2*vec*", "[operator*]"){
   Vec2 Testobjekt_19 = Testobjekt_18 * Testobjekt_16;
   REQUIRE(Testobjekt_19.x == -35);
   REQUIRE(Testobjekt_19.y == -11);
+}
+
+TEST_CASE("describe_function_det", "[det()]"){
+  Mat2 Testobjekt_20{1.0f, -2.0f, 3.0f, -4.0f};
+  float det_20 = Testobjekt_20.det();
+  REQUIRE(det_20 == 2);
+}
+
+TEST_CASE("describe_ operator*=_mat2*float", "[operator*=]"){
+  Mat2 Testobjekt_20halb{1.0f, -2.0f, 3.0f, -4.0f};
+  Testobjekt_20halb *= 1.5f;
+  REQUIRE(Testobjekt_20halb.e_00 == 1.5);
+  REQUIRE(Testobjekt_20halb.e_01 == -3);
+  REQUIRE(Testobjekt_20halb.e_10 == 4.5);
+  REQUIRE(Testobjekt_20halb.e_11 == -6);
+}
+
+TEST_CASE("describe_function_inverse()", "[inverse()]"){
+  Mat2 Testobjekt_21{1.0f, -2.0f, 3.0f, -4.0f};
+  Mat2 Testobjekt_22 = inverse(Testobjekt_21);
+  REQUIRE(Testobjekt_22.e_00 == -2);
+  REQUIRE(Testobjekt_22.e_01 == 1);
+  REQUIRE(Testobjekt_22.e_10 == -1.5);
+  REQUIRE(Testobjekt_22.e_11 == 0.5);
+}
+
+TEST_CASE("describe_operator*_mat2*float", "[operator]"){
+  Mat2 Testobjekt_20halb{1.0f, -2.0f, 3.0f, -4.0f};
+  Mat2 Testobjekt_21halb = Testobjekt_20halb * 1.5f;
+  REQUIRE(Testobjekt_21halb.e_00 == 1.5);
+  REQUIRE(Testobjekt_21halb.e_01 == -3);
+  REQUIRE(Testobjekt_21halb.e_10 == 4.5);
+  REQUIRE(Testobjekt_21halb.e_11 == -6);
+  Mat2 Testobjekt_22halb = -2.0f * Testobjekt_21halb;
+  REQUIRE(Testobjekt_22halb.e_00 == -3);
+  REQUIRE(Testobjekt_22halb.e_01 == 6);
+  REQUIRE(Testobjekt_22halb.e_10 == -9);
+  REQUIRE(Testobjekt_22halb.e_11 == 12);
+}
+
+TEST_CASE("describe_function_transpose()", "[transpose()]"){
+  Mat2 Testobjekt_23{1.0f, -2.0f, 3.0f, -4.0f};
+  Mat2 Testobjekt_23t = transpose(Testobjekt_23);
+  REQUIRE(Testobjekt_23t.e_00 == Testobjekt_23.e_00);
+  REQUIRE(Testobjekt_23t.e_01 == Testobjekt_23.e_10);
+  REQUIRE(Testobjekt_23t.e_10 == Testobjekt_23.e_01);
+  REQUIRE(Testobjekt_23t.e_11 == Testobjekt_23.e_11);
 }
 
 int main(int argc, char *argv[])

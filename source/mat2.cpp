@@ -12,6 +12,20 @@ Mat2& Mat2::operator*=(Mat2 const& m){
     return *this;
 }
 
+Mat2& Mat2::operator*=(float s){
+    e_00 *= s;
+    e_01 *= s;
+    e_10 *= s;
+    e_11 *= s;
+    return *this;
+}
+
+
+float Mat2::det() const{
+    float determinante = e_00 * e_11 - e_10 * e_01;
+    return determinante;
+}
+
 Mat2 operator*(Mat2 const& m1, Mat2 const& m2){
     Mat2 matrix{m1};
     matrix *= m2;
@@ -31,5 +45,33 @@ Vec2 operator*(Vec2 const& v, Mat2 const& m){
         m.e_00 * v.x + m.e_01 * v.y,
         m.e_10 * v.x + m.e_11 * v.y,
     };
+    return result;
+}
+
+Mat2 operator*(Mat2 const& m, float lambda){
+    Mat2 result{m};
+    result *= lambda;
+    return result;
+}
+
+Mat2 operator*(float lambda, Mat2 const& m){
+    Mat2 result{m};
+    result *= lambda;
+    return result;
+}
+
+Mat2 inverse(Mat2 const& m){
+    float det_m = m.det();
+    Mat2 result{};
+    result.e_00 = m.e_11;
+    result.e_01 = m.e_01 * -1;
+    result.e_10 = m.e_10 * -1;
+    result.e_11 = m.e_00;
+    result *= (1.0f / det_m);
+    return result;
+}
+
+Mat2 transpose(Mat2 const& m){
+    Mat2 result{m.e_00, m.e_10, m.e_01, m.e_11};
     return result;
 }

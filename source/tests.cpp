@@ -2,6 +2,7 @@
 #include <catch.hpp>
 #include "vec2.hpp"
 #include "mat2.hpp"
+#include "color.hpp"
 
 
 TEST_CASE("describe_Vec2_struct", "[Vec2]"){
@@ -160,6 +161,13 @@ TEST_CASE("describe_function_make_rotation_"){
   REQUIRE(e_01 == Approx(-(sqrt(2.0f) / 2.0f)).epsilon(0.01));
   REQUIRE(e_10 == Approx(sqrt(2.0f) / 2.0f).epsilon(0.01));
   REQUIRE(e_11 == Approx(sqrt(2.0f) / 2.0f).epsilon(0.01));
+}
+
+TEST_CASE("describe_struct_color", "[color]"){
+  color Testobjekt_25{};
+  REQUIRE(Testobjekt_25.r == 0.5f);
+  REQUIRE(Testobjekt_25.g == 0.5f);
+  REQUIRE(Testobjekt_25.b == 0.5f);
 }
 
 int main(int argc, char *argv[])

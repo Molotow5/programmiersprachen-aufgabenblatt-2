@@ -25,26 +25,31 @@
     }
 
     Vec2 operator+(Vec2 const& u, Vec2 const& v){
-        Vec2 ergebnis{u.x + v.x, u.y + v.y};
+        Vec2 ergebnis{u};
+        ergebnis += v;
         return ergebnis;
     }
 
     Vec2 operator-(Vec2 const& u, Vec2 const& v){
-        Vec2 ergebnis{u.x - v.x, u.y - v.y};
+        Vec2 ergebnis{u};
+        ergebnis -= v;
         return ergebnis;
     }
 
     Vec2 operator*(Vec2 const& u, float s){
-        Vec2 ergebnis{u.x * s, u.y * s};
+        Vec2 ergebnis{u};
+        ergebnis *= s;
         return ergebnis;
     }
 
     Vec2 operator/(Vec2 const& u, float s){
-        Vec2 ergebnis{u.x / s, u.y / s};
+        Vec2 ergebnis{u};
+        ergebnis /= s;
         return ergebnis;
     }
 
     Vec2 operator*(float s, Vec2 const& v){
-        Vec2 ergebnis{s * v.x, s * v.y};
+        Vec2 ergebnis{v};
+        ergebnis *= s;
         return ergebnis;
     }

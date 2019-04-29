@@ -13,12 +13,8 @@ Mat2& Mat2::operator*=(Mat2 const& m){
 }
 
 Mat2 operator*(Mat2 const& m1, Mat2 const& m2){
-    Mat2 matrix{
-        m1.e_00 * m2.e_00 + m1.e_01 * m2.e_10,
-        m1.e_00 * m2.e_01 + m1.e_01 * m2.e_11,
-        m1.e_01 * m2.e_00 + m1.e_11 * m2.e_10,
-        m1.e_01 * m2.e_01 + m1.e_11 * m2.e_11,
-    };
+    Mat2 matrix{m1};
+    matrix *= m2;
     return matrix;
 }
 

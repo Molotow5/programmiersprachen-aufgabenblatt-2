@@ -148,6 +148,20 @@ TEST_CASE("describe_function_transpose()", "[transpose()]"){
   REQUIRE(Testobjekt_23t.e_11 == Testobjekt_23.e_11);
 }
 
+TEST_CASE("describe_function_make_rotation_"){
+  Mat2 Testobjekt_24{1.0f, -2.0f, 3.0f, -4.0f};
+  float phi = 0.25f * M_PI;
+  Mat2 Testobjekt_Rotationsmatrix = make_rotation_mat2(phi);
+  double e_00 = Testobjekt_Rotationsmatrix.e_00;
+  double e_01 = Testobjekt_Rotationsmatrix.e_01;
+  double e_10 = Testobjekt_Rotationsmatrix.e_10;
+  double e_11 = Testobjekt_Rotationsmatrix.e_11;
+  REQUIRE(e_00 == Approx(sqrt(2.0f) / 2.0f).epsilon(0.01));
+  REQUIRE(e_01 == Approx(-(sqrt(2.0f) / 2.0f)).epsilon(0.01));
+  REQUIRE(e_10 == Approx(sqrt(2.0f) / 2.0f).epsilon(0.01));
+  REQUIRE(e_11 == Approx(sqrt(2.0f) / 2.0f).epsilon(0.01));
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

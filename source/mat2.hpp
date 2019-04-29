@@ -3,7 +3,7 @@
 #include <array>
 #include "vec2.hpp"
 
-// Mat2 definition
+// 2x2 Matrix
 
 struct Mat2 {
     // Matrix layout:
@@ -21,11 +21,14 @@ struct Mat2 {
 
 };
 
+// Freie Funktionen
+
 Mat2 operator*(Mat2 const& m1, Mat2 const& m2);
 Mat2 operator*(Mat2 const& m, float lambda);
 Mat2 operator*(float lambda, Mat2 const& m);
 Mat2 inverse(Mat2 const& m);
 Mat2 transpose(Mat2 const& m);
+Mat2 make_rotation_mat2(float phi);
 
 Vec2 operator*(Mat2 const& m, Vec2 const& v);
 Vec2 operator*(Vec2 const& v, Mat2 const& m);

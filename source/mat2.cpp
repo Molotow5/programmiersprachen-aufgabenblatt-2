@@ -77,7 +77,7 @@ Mat2 inverse(Mat2 const& m){
     return result;
 }
 
-// Gibt eine Transponierte Matrix zurück
+// Gibt eine Transponierte Matrix zurueck
 Mat2 transpose(Mat2 const& m){
     Mat2 result{m.e_00, m.e_10, m.e_01, m.e_11};
     return result;

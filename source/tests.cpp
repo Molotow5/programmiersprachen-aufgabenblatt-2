@@ -45,6 +45,8 @@ TEST_CASE("describe_operator/=", "[operator/="){
   Testobjekt_71 /= lambda;
   REQUIRE(Testobjekt_71.x == -1);
   REQUIRE(Testobjekt_71.y == 4);
+  Testobjekt_71 /= 0.0f;
+  REQUIRE(Testobjekt_71.x == -1);
 }
 
 TEST_CASE("describe_operator+", "[operator+]"){
@@ -79,6 +81,8 @@ TEST_CASE("describe_operator/", "[operator/]"){
   Vec2 Testobjekt_14 = Testobjekt_13 / zahl;
   REQUIRE(Testobjekt_14.x == 6000.4f);
   REQUIRE(Testobjekt_14.y == -22);
+  Vec2 Testobjekt_14halb = Testobjekt_14 / 0.0f;
+  REQUIRE(Testobjekt_14halb.y == -22);
 }
 
 TEST_CASE("describe_operator*=_mat2", "[operator*=]"){
@@ -164,7 +168,7 @@ TEST_CASE("describe_function_make_rotation_"){
 }
 
 TEST_CASE("describe_struct_color", "[color]"){
-  color Testobjekt_25{};
+  Color Testobjekt_25{};
   REQUIRE(Testobjekt_25.r == 0.5f);
   REQUIRE(Testobjekt_25.g == 0.5f);
   REQUIRE(Testobjekt_25.b == 0.5f);

@@ -1,3 +1,4 @@
+#include <iostream>
 #include "vec2.hpp"
 
     Vec2& Vec2::operator+=(Vec2 const& v){
@@ -19,9 +20,14 @@
     }
 
     Vec2& Vec2::operator/=(float s){
+        if (s == 0){
+            std::cout << "illegal acion, division by zero. \n";
+            return *this;
+        } else {
         x = x / s;
         y = y / s;
-        return *this;
+        return *this;    
+        }
     }
 
     Vec2 operator+(Vec2 const& u, Vec2 const& v){

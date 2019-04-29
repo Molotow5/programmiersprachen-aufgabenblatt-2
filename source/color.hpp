@@ -1,7 +1,7 @@
 #ifndef COLOR_HPP
 #define COLOR_HPP
 
-struct color
+struct Color
 {
 
 float r = 0.5f;

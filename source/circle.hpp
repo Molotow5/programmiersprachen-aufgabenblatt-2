@@ -2,6 +2,7 @@
 #define CIRCLE_HPP
 #include "vec2.hpp"
 #include "color.hpp"
+#include "window.hpp"
 
 // Klasse fuer einen Kreis
 
@@ -9,14 +10,16 @@ class Circle{
 
     public:
 
-    Circle(float r, Vec2 const& mp, Color const& col)
-        : radius_(r), midpoint_(mp), color_(col)
-        {}
+    Circle();
 
-        float circumference() const;
+    Circle(float r, Vec2 const& mp, Color const& col);
+    // Umfang des Kreises
+    float circumference() const;
 
     private:
 
+        // Kreis besteht aus Mittelpunkt und Radius sowie einer
+        // Liniesfarbe
         float radius_ = 0.0f;
         Vec2 midpoint_{};
         Color color_{};

@@ -2,11 +2,17 @@
 #include <GLFW/glfw3.h>
 #include <utility>
 #include <cmath>
+#include "rectangle.hpp"
 
 
 int main(int argc, char* argv[])
 {
   Window win{std::make_pair(800,800)};
+  Vec2 Vektor_Rec_1{200.0f, 600.0f};
+  Vec2 Vektor_Rec_2{600.0f, 200.0f};
+  Color Col_Rec_1{1.0f, 0.0f, 0.0f};
+  Rectangle Rec(Vektor_Rec_1, Vektor_Rec_2, Col_Rec_1);
+  Rectangle Rec_2{};
 
   while (!win.should_close()) {
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
@@ -29,6 +35,10 @@ int main(int argc, char* argv[])
     win.draw_point(x1, y1, 1.0f, 0.0f, 0.0f);
     win.draw_point(x2, y2, 0.0f, 1.0f, 0.0f);
     win.draw_point(x3, y3, 0.0f, 0.0f, 1.0f);
+
+    Rec.draw(win);
+    Rec_2.draw(win);
+    win.draw_line(100.0f, 100.0f, 700.0f, 700.0f, 0.0f, 1.0f, 0.0f);
 
     auto mouse_position = win.mouse_position();
     if (left_pressed) {

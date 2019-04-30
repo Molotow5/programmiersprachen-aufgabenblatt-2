@@ -15,8 +15,10 @@ class Circle{
     Circle(float r, Vec2 const& mp, Color const& col);
     // Umfang des Kreises
     float circumference() const;
-
+    // Funktion zum reichnen des Kreises in ein Window
     void draw(Window const& win);
+    // Wie obige mit einstellbarer Liniendicke
+    void draw(Window const& win, float thickness);
 
     private:
 

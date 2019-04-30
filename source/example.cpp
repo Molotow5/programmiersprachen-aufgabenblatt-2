@@ -9,14 +9,21 @@
 int main(int argc, char* argv[])
 {
   Window win{std::make_pair(800,800)};
-  Vec2 Vektor_Rec_1{200.0f, 600.0f};
-  Vec2 Vektor_Rec_2{600.0f, 200.0f};
+  Vec2 Vektor_Rec_1_min{200.0f, 600.0f};
+  Vec2 Vektor_Rec_1_max{600.0f, 200.0f};
   Color Col_Rec_1{1.0f, 0.0f, 0.0f};
-  Rectangle Rec(Vektor_Rec_1, Vektor_Rec_2, Col_Rec_1);
+  Rectangle Rec(Vektor_Rec_1_min, Vektor_Rec_1_max, Col_Rec_1);
   Rectangle Rec_2{};
   Vec2 Vektor_Cir_1{400.0f, 400.0f};
   Color Col_Cir_1{0.0f, 0.0f, 1.0f};
   Circle Cir(200.0f, Vektor_Cir_1, Col_Cir_1);
+  Color Col_Cir_2{139.0f / 255.0f, 90.0f / 255.0f, 43.0f / 255.0f};
+  Vec2 Vektor_Cir_2{Vektor_Cir_1};
+  Circle Cir_2(100.0f, Vektor_Cir_2, Col_Cir_2);
+  Vec2 Vektor_Rec_2_min{100.0f, 700.0f};
+  Vec2 Vektor_Rec_2_max{700.0f, 100.0f};
+  Color Col_Rec_2{255.0f, 127 / 255.0f, 0.0f};
+  Rectangle Rec_3(Vektor_Rec_2_min, Vektor_Rec_2_max, Col_Rec_2);
 
   while (!win.should_close()) {
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
@@ -44,6 +51,8 @@ int main(int argc, char* argv[])
     Rec_2.draw(win);
     win.draw_line(100.0f, 100.0f, 700.0f, 700.0f, 0.0f, 1.0f, 0.0f);
     Cir.draw(win);
+    Cir_2.draw(win, 10.0f);
+    Rec_3.draw(win, 35.0f);
 
     auto mouse_position = win.mouse_position();
     if (left_pressed) {

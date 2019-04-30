@@ -3,6 +3,7 @@
 #include <utility>
 #include <cmath>
 #include "rectangle.hpp"
+#include "circle.hpp"
 
 
 int main(int argc, char* argv[])
@@ -13,6 +14,9 @@ int main(int argc, char* argv[])
   Color Col_Rec_1{1.0f, 0.0f, 0.0f};
   Rectangle Rec(Vektor_Rec_1, Vektor_Rec_2, Col_Rec_1);
   Rectangle Rec_2{};
+  Vec2 Vektor_Cir_1{400.0f, 400.0f};
+  Color Col_Cir_1{0.0f, 0.0f, 1.0f};
+  Circle Cir(200.0f, Vektor_Cir_1, Col_Cir_1);
 
   while (!win.should_close()) {
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
@@ -39,6 +43,7 @@ int main(int argc, char* argv[])
     Rec.draw(win);
     Rec_2.draw(win);
     win.draw_line(100.0f, 100.0f, 700.0f, 700.0f, 0.0f, 1.0f, 0.0f);
+    Cir.draw(win);
 
     auto mouse_position = win.mouse_position();
     if (left_pressed) {

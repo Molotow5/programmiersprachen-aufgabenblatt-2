@@ -16,6 +16,8 @@ class Circle{
     // Umfang des Kreises
     float circumference() const;
 
+    void draw(Window const& win);
+
     private:
 
         // Kreis besteht aus Mittelpunkt und Radius sowie einer

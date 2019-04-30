@@ -4,6 +4,8 @@ add_executable(example
   glew.c
   vec2.cpp
   rectangle.cpp
+  circle.cpp
+  mat2.cpp
   example.cpp
   )
 target_link_libraries(example

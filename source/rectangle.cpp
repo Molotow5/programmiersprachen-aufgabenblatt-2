@@ -2,7 +2,7 @@
 #include "rectangle.hpp"
 
 Rectangle::Rectangle()
-    : min_{400, 500}, max_{600 ,600}, color_{}
+    : min_{400.0f, 600.0f}, max_{600.0f ,500.0f}, color_{}
     {}
 
 Rectangle::Rectangle(Vec2 const& p1, Vec2 const& p2, Color const& col)
@@ -51,10 +51,33 @@ void Rectangle::draw(Window const& win, float thickness) const{
 }
 
 bool Rectangle::is_inside(Vec2 const& point) const{
-    if (point.x < max_.x && point.x > min_.x && point.y < min_.y 
-        && point.y > max_.y){
-            return true;
-        } else {
-            return false;
-        }
+    if (min_.x <= max_.x && min_.y >= max_.y){
+        if (point.x < max_.x && point.x > min_.x && point.y < min_.y 
+            && point.y > max_.y){
+                return true;
+            } else {
+                return false;
+            }
+    } else if (min_.x > max_.x && min_.y < max_.y){
+        if (point.x > max_.x && point.x < min_.x && point.y > min_.y 
+            && point.y < max_.y){
+                return true;
+            } else {
+                return false;
+            }
+    } else if (min_.x <= max_.x && min_.y < max_.y){
+        if (point.x < max_.x && point.x > min_.x && point.y > min_.y 
+            && point.y < max_.y){
+                return true;
+            } else {
+                return false;
+            }
+    } else if (min_.x > max_.x && min_.y >= max_.y){
+        if (point.x > max_.x && point.x < min_.x && point.y < min_.y 
+            && point.y > max_.y){
+                return true;
+            } else {
+                return false;
+            }
+    }
 }

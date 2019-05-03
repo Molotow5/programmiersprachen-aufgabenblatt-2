@@ -19,6 +19,8 @@ class Rectangle{
         // Wie obige mit einstellbarer Liniendicke
         void draw(Window const& win, float thickness) const;
 
+        bool is_inside(Vec2 const& point) const;
+
     private:
 
         // Rechteck besteht aus zwei Punkten (links unten und rechts oben)

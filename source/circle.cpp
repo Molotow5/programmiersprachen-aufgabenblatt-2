@@ -10,7 +10,7 @@ Circle::Circle(float r, Vec2 const& mp, Color const& col)
         : radius_(r), midpoint_(mp), color_(col)
         {}
 
-void Circle::draw(Window const& win){
+void Circle::draw(Window const& win) const{
     Vec2 start_point{midpoint_.x - radius_, midpoint_.y};
     Vec2 last_point = start_point;
     for (int i = 1; i < 201; ++i){
@@ -24,7 +24,7 @@ void Circle::draw(Window const& win){
     }
 }
 
-void Circle::draw(Window const& win, float thickness){
+void Circle::draw(Window const& win, float thickness) const{
     Vec2 start_point{midpoint_.x - radius_, midpoint_.y};
     Vec2 last_point = start_point;
     for (int i = 1; i < 201; ++i){
@@ -42,4 +42,14 @@ void Circle::draw(Window const& win, float thickness){
 float Circle::circumference() const{
     float result = 2.0f * M_PI * radius_;
     return result;
+}
+
+bool Circle::is_inside(Vec2 const& point) const{
+    Vec2 direction = point - midpoint_;
+    float distance = direction.norm();
+    if ( distance <= radius_){
+        return true;
+    } else {
+        return false;
+    }
 }

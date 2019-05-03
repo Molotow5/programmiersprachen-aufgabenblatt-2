@@ -204,6 +204,28 @@ TEST_CASE("describe_class_circle", "[circle]"){
   REQUIRE(circumference == Approx(2 * 2 * M_PI).epsilon(0.01));
 }
 
+TEST_CASE("describe_method_is_inside_REC", "[is_inside]"){
+  Vec2 Vektor_min{200.0f, 400.0f};
+  Vec2 Vektor_max{700.0f, 200.0f};
+  Color Test_color{};
+  Rectangle Testobjekt_30(Vektor_min, Vektor_max, Test_color);
+  Vec2 Test_Vektor_1{300.0f, 300.0f};
+  Vec2 Test_Vektor_2{1000.0f, 1000.0f};
+  REQUIRE(Testobjekt_30.is_inside(Test_Vektor_1) == true);
+  REQUIRE(Testobjekt_30.is_inside(Test_Vektor_2) == false);
+}
+
+TEST_CASE("describe_method_is_inside_CIR", "[is_inside]"){
+  Vec2 Midpoint{500.0f, 500.0f};
+  float radius = 200.0f;
+  Color Test_color{};
+  Circle Testobjekt_31(radius, Midpoint, Test_color);
+  Vec2 Test_Vektor_3{600.0f, 600.0f};
+  Vec2 Test_Vektor_4{850.0f, 850.0f};
+  REQUIRE(Testobjekt_31.is_inside(Test_Vektor_3) == true);
+  REQUIRE(Testobjekt_31.is_inside(Test_Vektor_4) == false);
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

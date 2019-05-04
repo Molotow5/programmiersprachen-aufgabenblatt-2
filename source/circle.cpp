@@ -7,8 +7,8 @@ Circle::Circle():
     {}
 
 Circle::Circle(float r, Vec2 const& mp, Color const& col)
-        : radius_(r), midpoint_(mp), color_(col)
-        {}
+    : radius_(r), midpoint_(mp), color_(col)
+    {}
 
 void Circle::draw(Window const& win) const{
     Vec2 start_point{midpoint_.x - radius_, midpoint_.y};

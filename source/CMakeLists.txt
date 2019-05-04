@@ -33,4 +33,21 @@ target_link_libraries(tests
   ${OPENGL_LIBRARIES}
   )
 
+  # Build analoguhr
+add_executable(analoguhr
+  window.cpp
+  glew.c
+  vec2.cpp
+  rectangle.cpp
+  circle.cpp
+  mat2.cpp
+  analoguhr.cpp
+  )
+target_link_libraries(analoguhr
+  glfw
+  ${GLFW_LIBRARIES}
+  nanovg
+  ${OPENGL_LIBRARIES}
+  )
+add_dependencies(analoguhr glfw nanovg ${COPY_BINARY})
 

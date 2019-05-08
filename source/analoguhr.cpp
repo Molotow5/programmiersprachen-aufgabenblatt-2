@@ -71,11 +71,9 @@ int main(int argc, char* argv[]){
         draw_second_hand(win, seconds, 1.2f, 380.0f, second_hand_color, clock_midpoint);
         draw_minutes_hand(win, minutes, 2.4f, 360.0f, minutes_hand_color, clock_midpoint);
         draw_hours_hand(win, hours, 3.5f, 300.0f, hours_hand_color, clock_midpoint);
-        
+
         win.update();
     }
-
-    std::cout << win.get_time() << "\n";
 
     return 0;
 }

@@ -16,7 +16,7 @@ float Rectangle::circumference() const{
     return result;
 }
 
-void Rectangle::draw(Window const& win) const{
+void Rectangle::draw(Window const& win){
     win.draw_line(min_.x, min_.y,
                 min_.x, max_.y,
                 color_.r, color_.g, color_.b);
@@ -31,7 +31,7 @@ void Rectangle::draw(Window const& win) const{
                 color_.r, color_.g, color_.b);
 }
 
-void Rectangle::draw(Window const& win, float thickness) const{
+void Rectangle::draw(Window const& win, float thickness){
     win.draw_line(min_.x, min_.y,
                 min_.x, max_.y,
                 color_.r, color_.g, color_.b,

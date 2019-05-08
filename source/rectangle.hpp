@@ -15,10 +15,10 @@ class Rectangle{
         // Umfang des Rechteckes
         float circumference() const;
         // Zeichnet achsenparalleles Rechteck aus 4 Linien
-        void draw(Window const& win) const;
+        void draw(Window const& win);
         // Wie obige mit einstellbarer Liniendicke
-        void draw(Window const& win, float thickness) const;
-
+        void draw(Window const& win, float thickness);
+        // Check ob Koirdinaten in der Figur liegen
         bool is_inside(Vec2 const& point) const;
 
     private:

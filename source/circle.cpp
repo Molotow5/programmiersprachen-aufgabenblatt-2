@@ -24,7 +24,7 @@ void Circle::draw(Window const& win) const{
     }
 }
 
-void Circle::draw(Window const& win, float thickness) const{
+void Circle::draw(Window const& win, float thickness){
     Vec2 start_point{midpoint_.x - radius_, midpoint_.y};
     Vec2 last_point = start_point;
     for (int i = 1; i < 201; ++i){

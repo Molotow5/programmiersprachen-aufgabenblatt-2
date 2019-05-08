@@ -18,7 +18,7 @@ class Circle{
     // Funktion zum reichnen des Kreises in ein Window
     void draw(Window const& win) const;
     // Wie obige mit einstellbarer Liniendicke
-    void draw(Window const& win, float thickness) const;
+    void draw(Window const& win, float thickness);
 
     bool is_inside(Vec2 const& point) const;
 
